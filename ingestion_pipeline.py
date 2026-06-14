@@ -18,6 +18,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+# Character-Based Chunking (Fixed-Size Chunking)
+# there the fixed base chunking is use so the final answer can cut in between
+
+# there are nultiple other chunking method, which can be used.
+
 
 # loading function
 
