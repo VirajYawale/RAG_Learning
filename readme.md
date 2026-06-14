@@ -6,3 +6,7 @@
 ![img](img/pipeline.png)
 
 ![img2](img/pipeline2.png)
+
+**Files sequence**
+1. ingestion_pipeline.py
+2. retrival.py
