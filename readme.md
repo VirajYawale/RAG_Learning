@@ -28,9 +28,6 @@ Where:
  
 - **A · B** = dot product of the two vectors
 - **‖A‖, ‖B‖** = magnitudes (lengths) of the vectors
-> ```
-> cos(θ) = (A · B) / (‖A‖ × ‖B‖)
-> ```
  
 #### Output Range
  
