@@ -28,7 +28,6 @@ Where:
  
 - **A · B** = dot product of the two vectors
 - **‖A‖, ‖B‖** = magnitudes (lengths) of the vectors
-> If your Markdown renderer doesn't support LaTeX, the formula can also be written as:
 > ```
 > cos(θ) = (A · B) / (‖A‖ × ‖B‖)
 > ```
