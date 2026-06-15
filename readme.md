@@ -13,6 +13,7 @@
 1. ingestion_pipeline.py
 2. retrival.py
 - Develop both the pipeline now, answer generation for user (take the revelant chunks and user query and give it to LLM) in the same retrival.py file
+- output after this two: ![img3](img/output1.png)
 
 
 ### Cosine Similarity
