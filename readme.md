@@ -15,6 +15,9 @@
 - Develop both the pipeline now, answer generation for user (take the revelant chunks and user query and give it to LLM) in the same retrival.py file
 - output after this two: ![img3](img/output1.png)
 
+3. 3_history_aware_generation.py
+
+--- 
 
 ### Cosine Similarity
  
@@ -42,3 +45,52 @@ Where:
 | **-1** | Opposite direction (completely dissimilar) |
 
 Note: Modern embedding model (like openAI's text-embedding-3-small) - all vectors are naormalized (i.e magnitude are always 1)
+
+--- 
+
+- In basic RAG, each query is treated independently. The retriever takes your exact question and searches for chunks.
+In history-aware RAG, there's one crucial extra step: query reformulation.
+
+- Before searching, the system looks at the conversation history and rewrites vague or context-dependent questions into clear, standalone questions.
+
+- Why This Matters: Follow-up Questions
+Humans naturally ask follow-up questions using pronouns, referencessss, and assumptions based on previous conversation. These questions are often unsearchable on their own.
+
+Reference from file 3_history_aware_generation.py
+
+    User Question
+                           │
+                           ▼
+              Check Previous Chat History
+                           │
+          ┌────────────────┴────────────────┐
+          │                                 │
+        No History                     History Exists
+          │                                 │
+          ▼                                 ▼
+  Use Original Question          Rewrite Question using LLM
+                                          │
+                                          ▼
+                            Standalone Search Question
+                                          │
+                                          ▼
+                           HuggingFace Embedding Model
+                                          │
+                                          ▼
+                               Chroma Vector Search
+                                          │
+                                          ▼
+                              Retrieve Top-K Documents
+                                          │
+                                          ▼
+                        Build Context + User Question
+                                          │
+                                          ▼
+                                Groq LLM Generates
+                                      Answer
+                                          │
+                                          ▼
+                               Store in Chat History
+                                          │
+                                          ▼
+                                   Return Answer

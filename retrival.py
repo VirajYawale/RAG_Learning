@@ -32,7 +32,8 @@ embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-Mi
 db = Chroma(embedding_function=embedding_model, persist_directory=presistent_directory, collection_metadata={"hnsw:space": "cosine"})
 
 #search for relevant documents
-query = "What was NVIDIA's first graphics accelerator called?"
+# query = "What was NVIDIA's first graphics accelerator called?"
+query = "What is my name?"
 
 # retrieval = db.as_retriever(search_kwargs={"k": 3}) # k is the number of relevant documents to retrieve
 # we retrive beause we want to get the relevant documents from the vector store based on the query, and then we can use those documents to answer the question or provide more context.
