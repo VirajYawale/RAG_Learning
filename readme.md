@@ -136,3 +136,36 @@ Your retrieval and the final answer generation are only as good as your chunks. 
 
 - Headings, sections, tables, and lists are not preserved.
 - Document hierarchy and meaning can be lost during chunking.
+
+### The 5 Chunking Strategies We'll Cover
+
+#### 1. CharacterTextSplitter (Beyond Basic `chunk_size`)
+
+- **Custom separators** (split on specific patterns)
+- Still useful for simple, uniform documents or when speed matters most
+
+#### 2. RecursiveCharacterTextSplitter (Upgrade from CharacterTextSplitter)
+
+- Tries to split at natural boundaries (paragraphs, sentences, words)
+- Falls back gracefully if chunks are too big
+- Preserves more context than basic splitting
+
+#### 3. Document-Specific Splitting (Respects Document Structure)
+
+- **PDF:** Splits by pages, sections, and headers
+- **Markdown:** Splits by headers, code blocks, and lists
+- Each document type gets appropriate treatment
+
+#### 4. Semantic Splitting (Content-Aware Boundaries)
+
+- Uses embeddings to detect topic shifts
+- Keeps related concepts together
+- Splits when meaning changes, not just by size
+- More intelligent but computationally expensive
+
+#### 5. Agentic Splitting (AI-Powered Chunking)
+
+- LLM analyzes content and decides optimal splits
+- Can understand complex relationships
+- Adapts to content type automatically
+- Most sophisticated, but also the slowest and most expensive approach
