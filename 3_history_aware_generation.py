@@ -27,7 +27,7 @@ model = ChatGroq(
     groq_api_key = os.getenv("GROQ_API_KEY")
 )
 
-chat_history = []
+chat_history = [] # store conversation history
 
 def ask_question(user_question):
     print(f"--- You asked : ({user_question}) ---")
@@ -46,7 +46,7 @@ def ask_question(user_question):
 
         print(f"Searching for: {search_question}")
 
-    else:
+    else: # this else means if the history i not there then directly use the user question as the search question
         search_question = user_question
         print(f"Searching for: {search_question}")
 
@@ -54,12 +54,13 @@ def ask_question(user_question):
     retriever = db.as_retriever(search_kwargs={"k": 3})
     docs = retriever.invoke(search_question)
     
-    print(f"Found {len(docs)} relevant documents:")
-    for i, doc in enumerate(docs, 1):
-        # Show first 2 lines of each document
-        lines = doc.page_content.split('\n')[:2]
-        preview = '\n'.join(lines)
-        print(f"  Doc {i}: {preview}...")
+    # print(f"Found {len(docs)} relevant documents:")
+    # following is the display the retireved document
+    # for i, doc in enumerate(docs, 1):
+    #     # Show first 2 lines of each document
+    #     lines = doc.page_content.split('\n')[:2]
+    #     preview = '\n'.join(lines)
+    #     print(f"  Doc {i}: {preview}...")
 
     # setup 3 : Generate answer using the retrieved documents and the original question
     combined_input = f"""Based on the following documents, please answer this question: {user_question}
