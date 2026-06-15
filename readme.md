@@ -78,3 +78,30 @@ flowchart TD
 ```
  
 ---
+
+**Chunking is the critical second step - it determines how your content gets divided for retrieval.Your RAG system doesn't search entire documents. It searches chunks. So the final answer generation quality depends on those chunks.**
+
+#### The Problem with Basic Chunking
+
+In our first videos, we used `CharacterTextSplitter` — it simply cuts text at fixed character counts. Simple, but crude.
+
+###### Example with Tesla Document
+
+#### Chunk 1
+
+> "Tesla's Q3 revenue was $25.2B, up from $21.3B in Q2. The increase was driven by record Model Y sales which reached 350,000 units. However, production costs rose by 12% due to supply chain..."
+
+#### Chunk 2
+
+> "...challenges and inflation. Elon Musk stated that the company expects to maintain growth through 2024 despite economic headwinds. The Cybertruck launch has been delayed again..."
+
+#### Problems
+
+1. **Splits mid-sentence**
+   - `"supply chain..."` / `"...challenges"`
+
+2. **Breaks related concepts apart**
+   - Information that belongs together gets separated into different chunks.
+
+3. **Context gets lost across chunks**
+   - The retriever and LLM may miss important relationships between ideas.
