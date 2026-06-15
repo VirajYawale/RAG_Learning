@@ -106,7 +106,7 @@ we used `CharacterTextSplitter` — it simply cuts text at fixed character count
 3. **Context gets lost across chunks**
    - The retriever and LLM may miss important relationships between ideas.
 
-# Why Better Chunking Matters
+### Why Better Chunking Matters
 
 Your retrieval and the final answer generation are only as good as your chunks. **Bad chunks = bad answers.**
 
