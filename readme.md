@@ -2,6 +2,8 @@
 **Dependencies** :
 - pip install langchain langchain-community langchain-openai langchain-text-splitters langchain-chroma chromadb python-dotenv openai tiktoken
 
+- pip install langchain-groq (https://console.groq.com?utm_source=chatgpt.com) - for API key
+
 
 ![img](img/pipeline.png)
 
@@ -10,7 +12,7 @@
 **Files sequence**
 1. ingestion_pipeline.py
 2. retrival.py
-- Develop both the pipeline now, answer generation for user (take the revelant chunks and user query and give it to LLM)
+- Develop both the pipeline now, answer generation for user (take the revelant chunks and user query and give it to LLM) in the same retrival.py file
 
 
 ### Cosine Similarity
