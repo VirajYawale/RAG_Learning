@@ -58,39 +58,4 @@ Humans naturally ask follow-up questions using pronouns, referencessss, and assu
 
 Reference from file 3_history_aware_generation.py
 
-    User Question
-                           │
-                           ▼
-              Check Previous Chat History
-                           │
-          ┌────────────────┴────────────────┐
-          │                                 │
-        No History                     History Exists
-          │                                 │
-          ▼                                 ▼
-  Use Original Question          Rewrite Question using LLM
-                                          │
-                                          ▼
-                            Standalone Search Question
-                                          │
-                                          ▼
-                           HuggingFace Embedding Model
-                                          │
-                                          ▼
-                               Chroma Vector Search
-                                          │
-                                          ▼
-                              Retrieve Top-K Documents
-                                          │
-                                          ▼
-                        Build Context + User Question
-                                          │
-                                          ▼
-                                Groq LLM Generates
-                                      Answer
-                                          │
-                                          ▼
-                               Store in Chat History
-                                          │
-                                          ▼
-                                   Return Answer
+flowchart TD A[User Question] --> B{Previous Chat History Exists?} B -->|No| C[Use Original Question] B -->|Yes| D[Rewrite Question using LLM] D --> E[Standalone Search Question] C --> E E --> F[Generate Embeddings<br/>HuggingFace all-MiniLM-L6-v2] F --> G[Chroma Vector Search] G --> H[Retrieve Top-K Relevant Documents] H --> I[Build Context + Original User Question] I --> J[Generate Answer using Groq LLM] J --> K[Store Question and Answer in Chat History] K --> L[Return Final Answer to User]
