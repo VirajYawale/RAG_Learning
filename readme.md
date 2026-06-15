@@ -83,7 +83,7 @@ flowchart TD
 
 #### The Problem with Basic Chunking
 
-In our first videos, we used `CharacterTextSplitter` — it simply cuts text at fixed character counts. Simple, but crude.
+we used `CharacterTextSplitter` — it simply cuts text at fixed character counts. Simple, but crude.
 
 ###### Example with Tesla Document
 
@@ -105,3 +105,34 @@ In our first videos, we used `CharacterTextSplitter` — it simply cuts text at 
 
 3. **Context gets lost across chunks**
    - The retriever and LLM may miss important relationships between ideas.
+
+# Why Better Chunking Matters
+
+Your retrieval and the final answer generation are only as good as your chunks. **Bad chunks = bad answers.**
+
+#### Common Chunking Problems
+
+#### 1. Too Small
+**Lacks context**
+
+- Important details may be separated from their supporting information.
+- The retriever may return incomplete information.
+
+#### 2. Too Large
+**Too much noise, hits embedding model/context window limits**
+
+- Embeddings become less focused.
+- More irrelevant information is included.
+- Can exceed LLM context window constraints.
+
+#### 3. Poor Boundaries
+**Splits related information**
+
+- Related concepts are divided across chunks.
+- Important relationships between ideas may be lost.
+
+#### 4. No Structure Awareness
+**Ignores document format**
+
+- Headings, sections, tables, and lists are not preserved.
+- Document hierarchy and meaning can be lost during chunking.
