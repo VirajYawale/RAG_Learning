@@ -36,3 +36,5 @@ Where:
 | **1** | Identical direction (perfectly similar) |
 | **0** | Perpendicular (no similarity) |
 | **-1** | Opposite direction (completely dissimilar) |
+
+Note: Modern embedding model (like openAI's text-embedding-3-small) - all vectors are naormalized (i.e magnitude are always 1)
