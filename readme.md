@@ -10,6 +10,7 @@
 **Files sequence**
 1. ingestion_pipeline.py
 2. retrival.py
+- Develop both the pipeline now, answer generation for user (take the revelant chunks and user query and give it to LLM)
 
 
 ### Cosine Similarity
