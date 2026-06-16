@@ -193,3 +193,49 @@ CharacterTextSplitter doesn't simply split text based on a fixed number of chara
 - Reduces the chances of splitting important context in the middle of a sentence or paragraph.
 
 --- 
+
+
+# SemanticChunker
+
+## How it Works
+
+Semantic chunking breaks long documents into meaningful pieces by identifying where topics naturally change.
+
+Instead of splitting text based on fixed word counts or character limits, it uses AI embeddings to understand the semantic meaning of sentences.
+
+If one sentence discusses a particular topic and the next sentence discusses a completely different topic, the chunker recognizes this shift and creates a new chunk boundary.
+
+-
+
+## 3-Step Process
+
+### 1. Encode
+Convert each sentence into embeddings (numerical vector representations).
+
+### 2. Compare
+Calculate similarity scores between neighboring sentences to measure how closely related they are.
+
+### 3. Split
+Create chunk boundaries whenever the similarity score drops significantly, indicating a topic change.
+
+-
+
+## Benefits
+
+- Preserves semantic meaning and context.
+- Keeps related information together.
+- Produces more relevant chunks for Retrieval-Augmented Generation (RAG).
+- Improves retrieval quality compared to fixed-size chunking methods.
+- Reduces the chances of splitting important concepts across multiple chunks.
+
+-
+
+## Example
+
+**Before Semantic Chunking**
+
+```text
+Machine Learning is used for prediction.
+Neural Networks are a type of Machine Learning model.
+The Eiffel Tower is located in Paris.
+France is a popular tourist destination.
