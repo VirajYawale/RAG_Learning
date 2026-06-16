@@ -205,7 +205,6 @@ Instead of splitting text based on fixed word counts or character limits, it use
 
 If one sentence discusses a particular topic and the next sentence discusses a completely different topic, the chunker recognizes this shift and creates a new chunk boundary.
 
--
 
 ## 3-Step Process
 
@@ -218,8 +217,6 @@ Calculate similarity scores between neighboring sentences to measure how closely
 ### 3. Split
 Create chunk boundaries whenever the similarity score drops significantly, indicating a topic change.
 
--
-
 ## Benefits
 
 - Preserves semantic meaning and context.
@@ -228,7 +225,6 @@ Create chunk boundaries whenever the similarity score drops significantly, indic
 - Improves retrieval quality compared to fixed-size chunking methods.
 - Reduces the chances of splitting important concepts across multiple chunks.
 
--
 
 ## Example
 
