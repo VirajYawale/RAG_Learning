@@ -169,3 +169,27 @@ Your retrieval and the final answer generation are only as good as your chunks. 
 - Can understand complex relationships
 - Adapts to content type automatically
 - Most sophisticated, but also the slowest and most expensive approach
+
+--- 
+
+# CharacterTextSplitter
+
+CharacterTextSplitter doesn't simply split text based on a fixed number of characters. Instead, it uses a **split-first, merge-second** strategy to create meaningful chunks.
+
+## Workflow
+
+1. **Split**
+   - Break the text using predefined separators.
+   - Default separator: `\n\n` (double newline).
+
+2. **Merge**
+   - Gradually combine the split pieces.
+   - Stop merging when the resulting chunk reaches the specified `chunk_size`.
+
+## Benefits
+
+- Preserves natural text boundaries.
+- Produces more coherent chunks for embeddings and retrieval.
+- Reduces the chances of splitting important context in the middle of a sentence or paragraph.
+
+--- 
